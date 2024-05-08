@@ -2,7 +2,7 @@
 {
     public class Contact
     {
-        public Guid ContactID { get; set; }
+        public string ContactID { get; } = Guid.NewGuid().ToString("D");
         public string Name { get; set; }
         public string Email { get; set; }
         public string Subject { get; set; }

@@ -2,7 +2,7 @@
 {
     public class Testimonial
     {
-        public Guid TestimonialID { get; set; }
+        public string TestimonialID { get; } = Guid.NewGuid().ToString("D");
         public string Name { get; set; }
         public string Title { get; set; }
         public string Comment { get; set; }

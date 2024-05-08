@@ -58,6 +58,25 @@ namespace Persistence.Context
                 .HasOne(x => x.Pricing)
                 .WithMany(x => x.CarPricings)
                 .HasForeignKey(x => x.PricingID);
+
+            // Table Primary Key
+
+            modelBuilder.Entity<About>().HasKey(x => x.AboutID);
+            modelBuilder.Entity<Banner>().HasKey(x => x.BannerID);
+            modelBuilder.Entity<Brand>().HasKey(x => x.BrandID);
+            modelBuilder.Entity<Car>().HasKey(x => x.CarID);
+            modelBuilder.Entity<CarDescription>().HasKey(x => x.CarDescriptionID);
+            modelBuilder.Entity<CarFeature>().HasKey(x => x.CarFeatureID);
+            modelBuilder.Entity<CarPricing>().HasKey(x => x.CarPricingID);
+            modelBuilder.Entity<Category>().HasKey(x => x.CategoryID);
+            modelBuilder.Entity<Contact>().HasKey(x => x.ContactID);
+            modelBuilder.Entity<Feature>().HasKey(x => x.FeatureID);
+            modelBuilder.Entity<Footer>().HasKey(x => x.FooterID);
+            modelBuilder.Entity<Location>().HasKey(x => x.LocationID);
+            modelBuilder.Entity<Pricing>().HasKey(x => x.PricingID);
+            modelBuilder.Entity<Service>().HasKey(x => x.ServiceID);
+            modelBuilder.Entity<SocialMedia>().HasKey(x => x.SocialMediaID);
+            modelBuilder.Entity<Testimonial>().HasKey(x => x.TestimonialID);
         }
     }
 }

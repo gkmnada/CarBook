@@ -25,7 +25,7 @@ namespace Persistence.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<T> GetAsync(Guid id)
+        public async Task<T> GetAsync(string id)
         {
             return await _context.Set<T>().FindAsync(id);
         }

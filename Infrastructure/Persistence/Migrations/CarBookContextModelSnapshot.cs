@@ -24,9 +24,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.About", b =>
                 {
-                    b.Property<Guid>("AboutID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("AboutID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -47,9 +46,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Banner", b =>
                 {
-                    b.Property<Guid>("BannerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BannerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -74,9 +72,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Brand", b =>
                 {
-                    b.Property<Guid>("BrandID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BrandID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BrandName")
                         .IsRequired()
@@ -89,16 +86,16 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Car", b =>
                 {
-                    b.Property<Guid>("CarID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BigImage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("BrandID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BrandID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Fuel")
                         .IsRequired()
@@ -134,12 +131,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.CarDescription", b =>
                 {
-                    b.Property<Guid>("CarDescriptionID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarDescriptionID")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("CarID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -154,18 +151,19 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.CarFeature", b =>
                 {
-                    b.Property<Guid>("CarFeatureID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarFeatureID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("Available")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("CarID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("FeatureID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FeatureID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CarFeatureID");
 
@@ -178,18 +176,19 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.CarPricing", b =>
                 {
-                    b.Property<Guid>("CarPricingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarPricingID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("CarID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("PricingID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PricingID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CarPricingID");
 
@@ -202,9 +201,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Category", b =>
                 {
-                    b.Property<Guid>("CategoryID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CategoryID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
@@ -217,9 +215,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Contact", b =>
                 {
-                    b.Property<Guid>("ContactID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ContactID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -247,9 +244,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Feature", b =>
                 {
-                    b.Property<Guid>("FeatureID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FeatureID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FeatureName")
                         .IsRequired()
@@ -262,9 +258,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Footer", b =>
                 {
-                    b.Property<Guid>("FooterID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FooterID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -289,9 +284,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Location", b =>
                 {
-                    b.Property<Guid>("LocationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("LocationID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -304,9 +298,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Pricing", b =>
                 {
-                    b.Property<Guid>("PricingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PricingID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -319,9 +312,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Service", b =>
                 {
-                    b.Property<Guid>("ServiceID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ServiceID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -342,9 +334,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.SocialMedia", b =>
                 {
-                    b.Property<Guid>("SocialMediaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("SocialMediaID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -365,9 +356,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Testimonial", b =>
                 {
-                    b.Property<Guid>("TestimonialID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TestimonialID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comment")
                         .IsRequired()

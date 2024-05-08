@@ -2,7 +2,7 @@
 {
     public class Pricing
     {
-        public Guid PricingID { get; set; }
+        public string PricingID { get; } = Guid.NewGuid().ToString("D");
         public string Name { get; set; }
         public List<CarPricing> CarPricings { get; set; }
     }

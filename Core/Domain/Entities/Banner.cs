@@ -2,7 +2,7 @@
 {
     public class Banner
     {
-        public Guid BannerID { get; set; }
+        public string BannerID { get; } = Guid.NewGuid().ToString("D");
         public string Title { get; set; }
         public string Description { get; set; }
         public string VideoDescription { get; set; }

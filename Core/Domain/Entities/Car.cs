@@ -2,8 +2,8 @@
 {
     public class Car
     {
-        public Guid CarID { get; set; }
-        public Guid BrandID { get; set; }
+        public string CarID { get; } = Guid.NewGuid().ToString("D");
+        public string BrandID { get; set; }
         public Brand Brand { get; set; }
         public string Model { get; set; }
         public string Image { get; set; }

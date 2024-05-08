@@ -15,7 +15,7 @@ namespace Persistence.Migrations
                 name: "Abouts",
                 columns: table => new
                 {
-                    AboutID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AboutID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -29,7 +29,7 @@ namespace Persistence.Migrations
                 name: "Banners",
                 columns: table => new
                 {
-                    BannerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BannerID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VideoDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -44,7 +44,7 @@ namespace Persistence.Migrations
                 name: "Brands",
                 columns: table => new
                 {
-                    BrandID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BrandID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     BrandName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -56,7 +56,7 @@ namespace Persistence.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -68,7 +68,7 @@ namespace Persistence.Migrations
                 name: "Contacts",
                 columns: table => new
                 {
-                    ContactID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ContactID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -84,7 +84,7 @@ namespace Persistence.Migrations
                 name: "Features",
                 columns: table => new
                 {
-                    FeatureID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FeatureID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FeatureName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -96,7 +96,7 @@ namespace Persistence.Migrations
                 name: "Footers",
                 columns: table => new
                 {
-                    FooterID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FooterID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -111,7 +111,7 @@ namespace Persistence.Migrations
                 name: "Locations",
                 columns: table => new
                 {
-                    LocationID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LocationID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -123,7 +123,7 @@ namespace Persistence.Migrations
                 name: "Pricings",
                 columns: table => new
                 {
-                    PricingID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PricingID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -135,7 +135,7 @@ namespace Persistence.Migrations
                 name: "Services",
                 columns: table => new
                 {
-                    ServiceID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ServiceID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -149,7 +149,7 @@ namespace Persistence.Migrations
                 name: "SocialMedias",
                 columns: table => new
                 {
-                    SocialMediaID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SocialMediaID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -163,7 +163,7 @@ namespace Persistence.Migrations
                 name: "Testimonials",
                 columns: table => new
                 {
-                    TestimonialID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TestimonialID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -178,8 +178,8 @@ namespace Persistence.Migrations
                 name: "Cars",
                 columns: table => new
                 {
-                    CarID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BrandID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BrandID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Kilometers = table.Column<int>(type: "int", nullable: false),
@@ -204,8 +204,8 @@ namespace Persistence.Migrations
                 name: "CarDescriptions",
                 columns: table => new
                 {
-                    CarDescriptionID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarDescriptionID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CarID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -223,9 +223,9 @@ namespace Persistence.Migrations
                 name: "CarFeatures",
                 columns: table => new
                 {
-                    CarFeatureID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FeatureID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarFeatureID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CarID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FeatureID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Available = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -249,9 +249,9 @@ namespace Persistence.Migrations
                 name: "CarPricings",
                 columns: table => new
                 {
-                    CarPricingID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PricingID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarPricingID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CarID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PricingID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>

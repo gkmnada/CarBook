@@ -2,7 +2,7 @@
 {
     public class Location
     {
-        public Guid LocationID { get; set; }
+        public string LocationID { get; } = Guid.NewGuid().ToString("D");
         public string Name { get; set; }
     }
 }

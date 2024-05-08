@@ -2,7 +2,7 @@
 {
     public class Footer
     {
-        public Guid FooterID { get; set; }
+        public string FooterID { get; } = Guid.NewGuid().ToString("D");
         public string Description { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }

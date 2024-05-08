@@ -2,7 +2,7 @@
 {
     public class Brand
     {
-        public Guid BrandID { get; set; }
+        public string BrandID { get; } = Guid.NewGuid().ToString("D");
         public string BrandName { get; set; }
         public List<Car> Cars { get; set; }
     }
