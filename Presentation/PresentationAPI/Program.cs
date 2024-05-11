@@ -1,6 +1,5 @@
-using Application.Features.CQRS.Handlers.AboutHandlers;
-using Application.Features.CQRS.Handlers.BannerHandlers;
 using Application.Interfaces;
+using Application.Services;
 using Persistence.Context;
 using Persistence.Repositories;
 
@@ -10,17 +9,7 @@ builder.Services.AddScoped<CarBookContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-builder.Services.AddScoped<ListAboutQueryHandler>();
-builder.Services.AddScoped<GetAboutQueryHandler>();
-builder.Services.AddScoped<CreateAboutCommandHandler>();
-builder.Services.AddScoped<UpdateAboutCommandHandler>();
-builder.Services.AddScoped<DeleteAboutCommandHandler>();
-
-builder.Services.AddScoped<ListBannerQueryHandler>();
-builder.Services.AddScoped<GetBannerQueryHandler>();
-builder.Services.AddScoped<CreateBannerCommandHandler>();
-builder.Services.AddScoped<UpdateBannerCommandHandler>();
-builder.Services.AddScoped<DeleteBannerCommandHandler>();
+builder.Services.ApplicationServices(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
