@@ -1,5 +1,4 @@
-﻿using Application.Features.CQRS.Queries.BannerQueries;
-using Application.Features.CQRS.Results.BannerResults;
+﻿using Application.Features.CQRS.Results.BannerResults;
 using Application.Interfaces;
 using Domain.Entities;
 
@@ -14,17 +13,18 @@ namespace Application.Features.CQRS.Handlers.BannerHandlers
             _repository = repository;
         }
 
-        public async Task<GetBannerQueryResult> Handle(GetBannerQuery query)
+        public async Task<List<GetBannerQueryResult>> Handle()
         {
-            var values = await _repository.GetAsync(query.Id);
-            return new GetBannerQueryResult
+            var values = await _repository.ListAsync();
+
+            return values.Select(x => new GetBannerQueryResult
             {
-                BannerID = values.BannerID,
-                Title = values.Title,
-                Description = values.Description,
-                VideoDescription = values.VideoDescription,
-                Video = values.Video
-            };
+                BannerID = x.BannerID,
+                Title = x.Title,
+                Description = x.Description,
+                Video = x.Video,
+                VideoDescription = x.VideoDescription,
+            }).ToList();
         }
     }
 }

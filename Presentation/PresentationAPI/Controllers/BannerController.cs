@@ -10,32 +10,32 @@ namespace PresentationAPI.Controllers
     [ApiController]
     public class BannerController : ControllerBase
     {
-        private readonly ListBannerQueryHandler _listBannerQueryHandler;
+        private readonly GetBannerQueryHandler _getBannerQueryHandler;
         private readonly CreateBannerCommandHandler _createBannerCommandHandler;
         private readonly UpdateBannerCommandHandler _updateBannerCommandHandler;
         private readonly DeleteBannerCommandHandler _deleteBannerCommandHandler;
-        private readonly GetBannerQueryHandler _getBannerQueryHandler;
+        private readonly GetBannerByIdQueryHandler _getBannerByIdQueryHandler;
 
-        public BannerController(ListBannerQueryHandler listBannerQueryHandler, CreateBannerCommandHandler createBannerCommandHandler, UpdateBannerCommandHandler updateBannerCommandHandler, DeleteBannerCommandHandler deleteBannerCommandHandler, GetBannerQueryHandler getBannerQueryHandler)
+        public BannerController(GetBannerQueryHandler getBannerQueryHandler, CreateBannerCommandHandler createBannerCommandHandler, UpdateBannerCommandHandler updateBannerCommandHandler, DeleteBannerCommandHandler deleteBannerCommandHandler, GetBannerByIdQueryHandler getBannerByIdQueryHandler)
         {
-            _listBannerQueryHandler = listBannerQueryHandler;
+            _getBannerQueryHandler = getBannerQueryHandler;
             _createBannerCommandHandler = createBannerCommandHandler;
             _updateBannerCommandHandler = updateBannerCommandHandler;
             _deleteBannerCommandHandler = deleteBannerCommandHandler;
-            _getBannerQueryHandler = getBannerQueryHandler;
+            _getBannerByIdQueryHandler = getBannerByIdQueryHandler;
         }
 
         [HttpGet]
         public async Task<IActionResult> ListBanner()
         {
-            var values = await _listBannerQueryHandler.Handle();
+            var values = await _getBannerQueryHandler.Handle();
             return Ok(values);
         }
 
         [HttpGet("GetBanner")]
         public async Task<IActionResult> GetBanner(string id)
         {
-            var values = await _getBannerQueryHandler.Handle(new GetBannerQuery(id));
+            var values = await _getBannerByIdQueryHandler.Handle(new GetBannerByIdQuery(id));
             return Ok(values);
         }
 

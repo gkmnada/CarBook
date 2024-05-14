@@ -1,6 +1,6 @@
 ﻿namespace Application.Features.CQRS.Results.BannerResults
 {
-    public class ListBannerQueryResult
+    public class GetBannerByIdQueryResult
     {
         public string BannerID { get; set; }
         public string Title { get; set; }

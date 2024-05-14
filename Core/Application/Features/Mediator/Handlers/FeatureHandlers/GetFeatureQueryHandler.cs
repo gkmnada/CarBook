@@ -1,12 +1,12 @@
-﻿using Application.Features.Mediator.Queries.FeatureQueries;
+﻿using MediatR;
+using Application.Features.Mediator.Queries.FeatureQueries;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Interfaces;
 using Domain.Entities;
-using MediatR;
 
 namespace Application.Features.Mediator.Handlers.FeatureHandlers
 {
-    public class GetFeatureQueryHandler : IRequestHandler<GetFeatureQuery, GetFeatureQueryResult>
+    public class GetFeatureQueryHandler : IRequestHandler<GetFeatureQuery, List<GetFeatureQueryResult>>
     {
         private readonly IRepository<Feature> _repository;
 
@@ -15,14 +15,15 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
             _repository = repository;
         }
 
-        public async Task<GetFeatureQueryResult> Handle(GetFeatureQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetFeatureQueryResult>> Handle(GetFeatureQuery request, CancellationToken cancellationToken)
         {
-            var values = await _repository.GetAsync(request.Id);
-            return new GetFeatureQueryResult
+            var values = await _repository.ListAsync();
+
+            return values.Select(x => new GetFeatureQueryResult
             {
-                FeatureID = values.FeatureID,
-                FeatureName = values.FeatureName,
-            };
+                FeatureID = x.FeatureID,
+                FeatureName = x.FeatureName
+            }).ToList();
         }
     }
 }

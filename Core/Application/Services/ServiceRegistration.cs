@@ -12,14 +12,14 @@ namespace Application.Services
         {
             services.AddMediatR(typeof(ServiceRegistration).Assembly);
 
-            services.AddScoped<ListAboutQueryHandler>();
             services.AddScoped<GetAboutQueryHandler>();
+            services.AddScoped<GetAboutByIdQueryHandler>();
             services.AddScoped<CreateAboutCommandHandler>();
             services.AddScoped<UpdateAboutCommandHandler>();
             services.AddScoped<DeleteAboutCommandHandler>();
 
-            services.AddScoped<ListBannerQueryHandler>();
             services.AddScoped<GetBannerQueryHandler>();
+            services.AddScoped<GetBannerByIdQueryHandler>();
             services.AddScoped<CreateBannerCommandHandler>();
             services.AddScoped<UpdateBannerCommandHandler>();
             services.AddScoped<DeleteBannerCommandHandler>();

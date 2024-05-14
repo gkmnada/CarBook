@@ -1,6 +1,6 @@
 ﻿namespace Application.Features.CQRS.Results.AboutResults
 {
-    public class ListAboutQueryResult
+    public class GetAboutByIdQueryResult
     {
         public string AboutID { get; set; }
         public string Title { get; set; }

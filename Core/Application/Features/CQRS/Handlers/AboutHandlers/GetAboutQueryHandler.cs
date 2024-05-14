@@ -1,5 +1,4 @@
-﻿using Application.Features.CQRS.Queries.AboutQueries;
-using Application.Features.CQRS.Results.AboutResults;
+﻿using Application.Features.CQRS.Results.AboutResults;
 using Application.Interfaces;
 using Domain.Entities;
 
@@ -14,16 +13,16 @@ namespace Application.Features.CQRS.Handlers.AboutHandlers
             _repository = repository;
         }
 
-        public async Task<GetAboutQueryResult> Handle(GetAboutQuery query)
+        public async Task<List<GetAboutQueryResult>> Handle()
         {
-            var values = await _repository.GetAsync(query.Id);
-            return new GetAboutQueryResult
+            var values = await _repository.ListAsync();
+            return values.Select(x => new GetAboutQueryResult
             {
-                AboutID = values.AboutID,
-                Title = values.Title,
-                Description = values.Description,
-                Image = values.Image
-            };
+                AboutID = x.AboutID,
+                Title = x.Title,
+                Description = x.Description,
+                Image = x.Image,
+            }).ToList();
         }
     }
 }

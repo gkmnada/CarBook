@@ -20,14 +20,14 @@ namespace PresentationAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> ListFeature()
         {
-            var values = await _mediator.Send(new ListFeatureQuery());
+            var values = await _mediator.Send(new GetFeatureQuery());
             return Ok(values);
         }
 
         [HttpGet("GetFeature")]
         public async Task<IActionResult> GetFeature(string id)
         {
-            var values = await _mediator.Send(new GetFeatureQuery(id));
+            var values = await _mediator.Send(new GetFeatureByIdQuery(id));
             return Ok(values);
         }
 

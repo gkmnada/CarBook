@@ -11,16 +11,16 @@ namespace PresentationAPI.Controllers
     public class AboutController : ControllerBase
     {
         private readonly CreateAboutCommandHandler _createAboutCommandHandler;
-        private readonly ListAboutQueryHandler _listAboutQueryHandler;
         private readonly GetAboutQueryHandler _getAboutQueryHandler;
+        private readonly GetAboutByIdQueryHandler _getAboutByIdQueryHandler;
         private readonly UpdateAboutCommandHandler _updateAboutCommandHandler;
         private readonly DeleteAboutCommandHandler _deleteAboutCommandHandler;
 
-        public AboutController(CreateAboutCommandHandler createAboutCommandHandler, ListAboutQueryHandler listAboutQueryHandler, GetAboutQueryHandler getAboutQueryHandler, UpdateAboutCommandHandler updateAboutCommandHandler, DeleteAboutCommandHandler deleteAboutCommandHandler)
+        public AboutController(CreateAboutCommandHandler createAboutCommandHandler, GetAboutQueryHandler getAboutQueryHandler, GetAboutByIdQueryHandler getAboutByIdQueryHandler, UpdateAboutCommandHandler updateAboutCommandHandler, DeleteAboutCommandHandler deleteAboutCommandHandler)
         {
             _createAboutCommandHandler = createAboutCommandHandler;
-            _listAboutQueryHandler = listAboutQueryHandler;
             _getAboutQueryHandler = getAboutQueryHandler;
+            _getAboutByIdQueryHandler = getAboutByIdQueryHandler;
             _updateAboutCommandHandler = updateAboutCommandHandler;
             _deleteAboutCommandHandler = deleteAboutCommandHandler;
         }
@@ -28,14 +28,14 @@ namespace PresentationAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> ListAbout()
         {
-            var values = await _listAboutQueryHandler.Handle();
+            var values = await _getAboutQueryHandler.Handle();
             return Ok(values);
         }
 
         [HttpGet("GetAbout")]
         public async Task<IActionResult> GetAbout(string id)
         {
-            var values = await _getAboutQueryHandler.Handle(new GetAboutQuery(id));
+            var values = await _getAboutByIdQueryHandler.Handle(new GetAboutByIdQuery(id));
             return Ok(values);
         }
 
