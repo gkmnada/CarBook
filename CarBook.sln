@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Core\Applica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{3199E778-30A0-42B8-BA03-A07271C316E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationUI", "Frontends\PresentationUI\PresentationUI.csproj", "{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationUI", "Frontends\PresentationUI\PresentationUI.csproj", "{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtoLayer", "Frontends\DtoLayer\DtoLayer.csproj", "{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{CDC1D601-7533-4CD1-A00D-CA172FD26B11} = {919A7BA5-F541-4EFD-B36F-095A1D5E3E24}
 		{D3E9A49E-2520-45AA-9BA5-D5E95296031B} = {8C71B24A-C8AE-4263-B3B0-03C293C8DA94}
 		{EE9BD75E-5C49-4E29-94E5-CF0C87F51DE1} = {3199E778-30A0-42B8-BA03-A07271C316E0}
+		{892EBE38-C1D4-4CAC-8D34-D99AF65E1B97} = {3199E778-30A0-42B8-BA03-A07271C316E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {443A4DB7-BBBC-4A37-AEB6-D58DF45042A4}

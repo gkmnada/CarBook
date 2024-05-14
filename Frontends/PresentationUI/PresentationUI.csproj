@@ -15,4 +15,8 @@
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DtoLayer\DtoLayer.csproj" />
+  </ItemGroup>
+
 </Project>
