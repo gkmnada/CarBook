@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewComponents\Home\" />
-    <Folder Include="Views\Shared\Components\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DtoLayer\DtoLayer.csproj" />
   </ItemGroup>
 
