@@ -15,7 +15,7 @@
 
     @RenderBody()
 
-    @await Html.PartialAsync("Layout/Footer")
+    @await Component.InvokeAsync("Footer")
 
     @await Html.PartialAsync("Layout/Scripts")
 </body>

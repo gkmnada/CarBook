@@ -1,4 +1,6 @@
-﻿<footer class="ftco-footer ftco-bg-dark ftco-section">
+﻿@model List<ResultFooterDto>
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
@@ -16,11 +18,11 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Menü</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Ana Sayfa</a></li>
-                        <li><a href="#" class="py-2 d-block">Hakkımızda</a></li>
-                        <li><a href="#" class="py-2 d-block">Hizmetlerimiz</a></li>
+                        <li><a asp-controller="Home" asp-action="Index" class="py-2 d-block">Ana Sayfa</a></li>
+                        <li><a asp-controller="About" asp-action="Index" class="py-2 d-block">Hakkımızda</a></li>
+                        <li><a asp-controller="Services" asp-action="Index" class="py-2 d-block">Hizmetlerimiz</a></li>
                         <li><a href="#" class="py-2 d-block">Fiyatlandırma</a></li>
-                        <li><a href="#" class="py-2 d-block">Araçlar</a></li>
+                        <li><a asp-controller="Cars" asp-action="Index" class="py-2 d-block">Araçlar</a></li>
 
                     </ul>
                 </div>
@@ -33,22 +35,25 @@
                         <li><a href="#" class="py-2 d-block">Ödeme Seçenekleri</a></li>
                         <li><a href="#" class="py-2 d-block">Rezervasyon İpuçları</a></li>
                         <li><a href="#" class="py-2 d-block">Gizlilik &amp; Çerez Politikaları</a></li>
-                        <li><a href="#" class="py-2 d-block">Bize Ulaşın</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index" class="py-2 d-block">Bize Ulaşın</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">İletişim</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">1064. Sokak, Ankara, Türkiye</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+90 500 500 50 50</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">gkmenada@hotmail.com</span></a></li>
-                        </ul>
+            @foreach (var item in Model)
+            {
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">@item.Description</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">@item.Phone</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@item.Email</span></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
