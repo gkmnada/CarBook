@@ -2,6 +2,7 @@
 using Application.Features.CQRS.Handlers.BannerHandlers;
 using Application.Features.CQRS.Handlers.BrandHandlers;
 using Application.Features.CQRS.Handlers.CarHandlers;
+using Application.Features.CQRS.Handlers.CategoryHandlers;
 using Application.Features.CQRS.Handlers.ContactHandlers;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -45,6 +46,12 @@ namespace Application.Services
             services.AddScoped<CreateContactCommandHandler>();
             services.AddScoped<UpdateContactCommandHandler>();
             services.AddScoped<DeleteContactCommandHandler>();
+
+            services.AddScoped<GetCategoryQueryHandler>();
+            services.AddScoped<GetCategoryByIdQueryHandler>();
+            services.AddScoped<CreateCategoryCommandHandler>();
+            services.AddScoped<UpdateCategoryCommandHandler>();
+            services.AddScoped<DeleteCategoryCommandHandler>();
         }
     }
 }
