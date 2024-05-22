@@ -1,0 +1,70 @@
+﻿@model List<ResultCarWithBrandDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Araç Listesi</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Araçlar</a></li>
+                    <li class="breadcrumb-item active">Araç Listesi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Araç Listesi</h4>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Araç Markası</th>
+                                <th>Araç Modeli</th>
+                                <th>Kilometre</th>
+                                <th>Şanzıman Türü</th>
+                                <th>Koltuk Sayısı</th>
+                                <th>Bagaj Sayısı</th>
+                                <th>Yakıt Türü</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.BrandName</td>
+                                    <td>@item.Model</td>
+                                    <td>@item.Kilometers</td>
+                                    <td>@item.Transmission</td>
+                                    <td>@item.Seat</td>
+                                    <td>@item.Luggage</td>
+                                    <td>@item.Fuel</td>
+                                    <td>
+                                        <a href="/Administrator/Cars/UpdateCar?id=@item.CarID" class="btn btn-secondary btn-rounded waves-effect waves-light">Güncelle</a>
+                                        <a href="/Administrator/Cars/DeleteCar?id=@item.CarID" class="btn btn-danger btn-rounded waves-effect waves-light">Sil</a>
+                                        <a href="/Administrator/Cars/CarDetails?id=@item.CarID" class="btn btn-dark btn-rounded waves-effect waves-light">Detaylar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

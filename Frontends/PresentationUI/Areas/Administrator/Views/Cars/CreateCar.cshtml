@@ -1,0 +1,103 @@
+﻿@model CreateCarDto
+
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Yeni Araç Oluştur</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Araçlar</a></li>
+                    <li class="breadcrumb-item active">Yeni Araç Oluştur</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Araç Oluştur</h4>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-brand">Marka Seç</label>
+                                <select class="form-control" id="select-brand" asp-items="@ViewBag.Brands" asp-for="BrandID">
+                                    <option value="Marka Seçilmedi">Marka Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-model">Model</label>
+                                <input type="text" class="form-control" id="txt-model" asp-for="Model" placeholder="Model Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-image">Araç Resmi</label>
+                                <input type="text" class="form-control" id="txt-image" asp-for="Image" placeholder="Araç Resmi Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-big-image">Büyük Araç Resmi</label>
+                                <input type="text" class="form-control" id="txt-big-image" asp-for="BigImage" placeholder="Büyük Araç Resmi Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-kilometers">Kilometre</label>
+                                <input type="text" class="form-control" id="txt-kilometers" asp-for="Kilometers" placeholder="Araç Kilometresini Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group">
+                                <label for="txt-seat">Koltuk Sayısı</label>
+                                <input type="text" class="form-control" id="txt-seat" asp-for="Seat" placeholder="Koltuk Sayısını Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group">
+                                <label for="txt-luggage">Bagaj Sayısı</label>
+                                <input type="text" class="form-control" id="txt-luggage" asp-for="Luggage" placeholder="Bagaj Sayısını Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-transmission">Şanzıman Türü</label>
+                                <select class="form-control" id="select-transmission" asp-for="Transmission">
+                                    <option value="Seçilmedi">Şanzıman Türü Seçiniz</option>
+                                    <option value="Manuel">Manuel</option>
+                                    <option value="Yarı Otomatik">Yarı Otomatik</option>
+                                    <option value="Otomatik">Otomatik</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-fuel">Yakıt Türü</label>
+                                <select class="form-control" id="select-fuel" asp-for="Fuel">
+                                    <option value="Seçilmedi">Yakıt Türü Seçiniz</option>
+                                    <option value="Benzin">Benzin</option>
+                                    <option value="Dizel">Dizel</option>
+                                    <option value="LPG">LPG</option>
+                                    <option value="Elektrik">Elektrik</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Yeni Araç Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

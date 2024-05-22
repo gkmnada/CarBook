@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Carbook - Yönetici Paneli</title>
+
+    <link rel="shortcut icon" href="/admin-master/assets/images/favicon.ico">
+
+    <link href="/admin-master/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin-master/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin-master/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="layout-wrapper">
+        @await Component.InvokeAsync("AdminHeader")
+
+        @await Component.InvokeAsync("AdminSidebar")
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+
+            @await Component.InvokeAsync("AdminFooter")
+        </div>
+    </div>
+
+    <div class="menu-overlay"></div>
+
+    <script src="/admin-master/assets/js/jquery.min.js"></script>
+    <script src="/admin-master/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin-master/assets/js/metismenu.min.js"></script>
+    <script src="/admin-master/assets/js/waves.js"></script>
+    <script src="/admin-master/assets/js/simplebar.min.js"></script>
+
+    <script src="/admin-master/assets/js/theme.js"></script>
+</body>
+</html>

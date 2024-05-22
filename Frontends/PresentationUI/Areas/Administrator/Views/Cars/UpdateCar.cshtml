@@ -1,0 +1,107 @@
+﻿@model CarViewModel
+
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Araç Güncelle</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Araçlar</a></li>
+                    <li class="breadcrumb-item active">Araç Güncelle</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Araç Güncelle</h4>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-brand">Marka Seç</label>
+                                <select class="form-control" id="select-brand" asp-for="UpdateCarDto.BrandID">
+                                    @foreach (var item in ViewBag.Brands)
+                                    {
+                                        <option value="@item.Value" selected="@(ViewBag.SelectedBrand == item.Value)">@item.Text</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-model">Model</label>
+                                <input type="text" class="form-control" id="txt-model" value="@Model.GetCarDto.Model" asp-for="UpdateCarDto.Model" placeholder="Model Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-image">Araç Resmi</label>
+                                <input type="text" class="form-control" id="txt-image" value="@Model.GetCarDto.Image" asp-for="UpdateCarDto.Image" placeholder="Araç Resmi Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-big-image">Büyük Araç Resmi</label>
+                                <input type="text" class="form-control" id="txt-big-image" value="@Model.GetCarDto.BigImage" asp-for="UpdateCarDto.BigImage" placeholder="Büyük Araç Resmi Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-kilometers">Kilometre</label>
+                                <input type="text" class="form-control" id="txt-kilometers" value="@Model.GetCarDto.Kilometers" asp-for="UpdateCarDto.Kilometers" placeholder="Araç Kilometresini Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group">
+                                <label for="txt-seat">Koltuk Sayısı</label>
+                                <input type="text" class="form-control" id="txt-seat" value="@Model.GetCarDto.Seat" asp-for="UpdateCarDto.Seat" placeholder="Koltuk Sayısını Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group">
+                                <label for="txt-luggage">Bagaj Sayısı</label>
+                                <input type="text" class="form-control" id="txt-luggage" value="@Model.GetCarDto.Luggage" asp-for="UpdateCarDto.Luggage" placeholder="Bagaj Sayısını Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-transmission">Şanzıman Türü</label>
+                                <select class="form-control" id="select-transmission" asp-for="UpdateCarDto.Transmission">
+                                    <option value="Seçilmedi" selected="@(ViewBag.SelectedTransmission == "Seçilmedi")">Şanzıman Türü Seçiniz</option>
+                                    <option value="Manuel" selected="@(ViewBag.SelectedTransmission == "Manuel")">Manuel</option>
+                                    <option value="Yarı Otomatik" selected="@(ViewBag.SelectedTransmission == "Yarı Otomatik")">Yarı Otomatik</option>
+                                    <option value="Otomatik" selected="@(ViewBag.SelectedTransmission == "Otomatik")">Otomatik</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-fuel">Yakıt Türü</label>
+                                <select class="form-control" id="select-fuel" asp-for="UpdateCarDto.Fuel">
+                                    <option value="Seçilmedi" selected="@(ViewBag.SelectedFuel == "Seçilmedi")">Yakıt Türü Seçiniz</option>
+                                    <option value="Benzin" selected="@(ViewBag.SelectedFuel == "Benzin")">Benzin</option>
+                                    <option value="Dizel" selected="@(ViewBag.SelectedFuel == "Dizel")">Dizel</option>
+                                    <option value="LPG" selected="@(ViewBag.SelectedFuel == "LPG")">LPG</option>
+                                    <option value="Elektrik" selected="@(ViewBag.SelectedFuel == "Elektrik")">Elektrik</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" value="@Model.GetCarDto.CarID" asp-for="UpdateCarDto.CarID" />
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Araç Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
