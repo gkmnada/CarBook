@@ -16,6 +16,21 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-car-multiple"></i><span>Araçlar</span></a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a asp-controller="Cars" asp-action="Index" asp-area="Administrator">Araç Listesi</a></li>
+                        <li><a asp-controller="Cars" asp-action="CreateCar" asp-area="Administrator">Yeni Araç Oluştur</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-settings"></i><span>Özellikler</span></a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a asp-controller="Feature" asp-action="Index" asp-area="Administrator">Özellik Listesi</a></li>
+                        <li><a asp-controller="Feature" asp-action="CreateFeature" asp-area="Administrator">Yeni Özellik Oluştur</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-star"></i><span>Markalar</span></a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a asp-controller="Brand" asp-action="Index" asp-area="Administrator">Marka Listesi</a></li>
+                        <li><a asp-controller="Brand" asp-action="CreateBrand" asp-area="Administrator">Yeni Marka Oluştur</a></li>
                     </ul>
                 </li>
             </ul>
