@@ -27,10 +27,17 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-star"></i><span>Markalar</span></a>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-tag"></i><span>Markalar</span></a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a asp-controller="Brand" asp-action="Index" asp-area="Administrator">Marka Listesi</a></li>
                         <li><a asp-controller="Brand" asp-action="CreateBrand" asp-area="Administrator">Yeni Marka Oluştur</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="mdi mdi-cash-multiple"></i><span>Ödeme Periyotları</span></a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a asp-controller="Pricing" asp-action="Index" asp-area="Administrator">Ödeme Periyotları</a></li>
+                        <li><a asp-controller="Pricing" asp-action="CreatePricing" asp-area="Administrator">Ödeme Periyodu Oluştur</a></li>
                     </ul>
                 </li>
             </ul>
