@@ -1,0 +1,27 @@
+﻿using Application.Features.Mediator.Commands.LocationCommands;
+using Application.Interfaces;
+using Domain.Entities;
+using MediatR;
+
+namespace Application.Features.Mediator.Handlers.LocationHandlers
+{
+    public class CreateLocationCommandHandler : IRequestHandler<CreateLocationCommand>
+    {
+        private readonly IRepository<Location> _repository;
+
+        public CreateLocationCommandHandler(IRepository<Location> repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<Unit> Handle(CreateLocationCommand request, CancellationToken cancellationToken)
+        {
+            await _repository.CreateAsnyc(new Location
+            {
+                Name = request.Name
+            });
+
+            return Unit.Value;
+        }
+    }
+}
