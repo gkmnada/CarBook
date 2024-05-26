@@ -1,0 +1,54 @@
+﻿@model ServiceViewModel
+
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Hizmet Güncelle</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Hizmetlerimiz</a></li>
+                    <li class="breadcrumb-item active">Hizmet Güncelle</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-service-title">Hizmet Adı</label>
+                                <input class="form-control" id="txt-service-title" value="@Model.GetServiceDto.Title" asp-for="UpdateServiceDto.Title" placeholder="Hizmet Adı Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-service-icon">İkon</label>
+                                <input class="form-control" id="txt-service-icon" value="@Model.GetServiceDto.Icon" asp-for="UpdateServiceDto.Icon" placeholder="İkon Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label for="txt-description">Açıklama</label>
+                                <input class="form-control" id="txt-description" value="@Model.GetServiceDto.Description" asp-for="UpdateServiceDto.Description" placeholder="Açıklama Giriniz" />
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" value="@Model.GetServiceDto.ServiceID" asp-for="UpdateServiceDto.ServiceID" />
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

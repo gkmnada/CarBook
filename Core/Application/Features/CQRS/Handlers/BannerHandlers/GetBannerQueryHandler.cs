@@ -22,8 +22,7 @@ namespace Application.Features.CQRS.Handlers.BannerHandlers
                 BannerID = x.BannerID,
                 Title = x.Title,
                 Description = x.Description,
-                Video = x.Video,
-                VideoDescription = x.VideoDescription,
+                Image = x.Image
             }).ToList();
         }
     }

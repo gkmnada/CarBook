@@ -1,4 +1,5 @@
 ﻿using DtoLayer.FooterDto;
+using DtoLayer.SocialMediaDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -21,6 +22,13 @@ namespace PresentationUI.ViewComponents.Layout
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultFooterDto>>(jsonData);
+
+                var response = await client.GetAsync("https://localhost:7210/api/SocialMedia");
+                var json = await response.Content.ReadAsStringAsync();
+                var socialMedia = JsonConvert.DeserializeObject<List<ResultSocialMediaDto>>(json);
+
+                ViewBag.SocialMedia = socialMedia;
+
                 return View(values);
             }
             return View();

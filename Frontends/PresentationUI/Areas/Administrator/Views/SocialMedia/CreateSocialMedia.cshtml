@@ -1,0 +1,53 @@
+﻿@model CreateSocialMediaDto
+
+@{
+    ViewData["Title"] = "CreateSocialMedia";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Yeni Sosyal Medya Oluştur</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Sosyal Medya</a></li>
+                    <li class="breadcrumb-item active">Yeni Sosyal Medya Oluştur</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-name">Sosyal Medya Adı</label>
+                                <input class="form-control" id="txt-name" asp-for="Name" placeholder="Sosyal Medya Adı Giriniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="txt-icon">Sosyal Medya İkonu</label>
+                                <input class="form-control" id="txt-icon" asp-for="Icon" placeholder="Sosyal Medya İkonu Seçiniz" />
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label for="txt-address">Sosyal Medya Adresi</label>
+                                <input class="form-control" id="txt-address" asp-for="Address" placeholder="Sosyal Medya Linki Giriniz" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Yeni Sosyal Medya Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

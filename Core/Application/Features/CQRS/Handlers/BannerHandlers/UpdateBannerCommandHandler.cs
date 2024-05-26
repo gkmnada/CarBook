@@ -18,8 +18,7 @@ namespace Application.Features.CQRS.Handlers.BannerHandlers
             var values = await _repository.GetAsync(updateBannerCommand.BannerID);
             values.Title = updateBannerCommand.Title;
             values.Description = updateBannerCommand.Description;
-            values.VideoDescription = updateBannerCommand.VideoDescription;
-            values.Video = updateBannerCommand.Video;
+            values.Image = updateBannerCommand.Image;
             await _repository.UpdateAsync(values);
         }
     }

@@ -8,9 +8,10 @@
                     <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
                     <p>Seyahatinizi planlamak hiç bu kadar kolay olmamıştı! Aracınızı seçin, tarihleri belirleyin ve hemen yolculuğa başlayın!</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        @foreach (var item in ViewBag.SocialMedia)
+                        {
+                            <li class="ftco-animate"><a href="@item.Address"><span class="@item.Icon"></span></a></li>
+                        }
                     </ul>
                 </div>
             </div>

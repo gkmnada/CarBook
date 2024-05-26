@@ -19,8 +19,7 @@ namespace Application.Features.CQRS.Handlers.BannerHandlers
             {
                 Title = createBannerCommand.Title,
                 Description = createBannerCommand.Description,
-                VideoDescription = createBannerCommand.VideoDescription,
-                Video = createBannerCommand.Video
+                Image = createBannerCommand.Image
             });
         }
     }
