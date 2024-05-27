@@ -14,7 +14,7 @@ namespace Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task<List<GetCarWithBrandQueryResult>> Handle()
         {
-            var values = await _carRepository.ListCarWithBrand();
+            var values = await _carRepository.ListCarWithBrandAsync();
 
             return values.Select(x => new GetCarWithBrandQueryResult
             {

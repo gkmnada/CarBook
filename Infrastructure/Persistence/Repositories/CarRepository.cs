@@ -14,7 +14,13 @@ namespace Persistence.Repositories
             _context = context;
         }
 
-        public async Task<List<Car>> ListCarWithBrand()
+        public async Task<int> GetCarCountAsync()
+        {
+            var value = await _context.Cars.CountAsync();
+            return value;
+        }
+
+        public async Task<List<Car>> ListCarWithBrandAsync()
         {
             var values = await _context.Cars.Include(x => x.Brand).ToListAsync();
             return values;
