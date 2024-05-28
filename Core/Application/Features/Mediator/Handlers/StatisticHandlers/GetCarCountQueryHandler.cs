@@ -7,16 +7,16 @@ namespace Application.Features.Mediator.Handlers.StatisticHandlers
 {
     public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
     {
-        private readonly ICarRepository _carRepository;
+        private readonly IStatisticRepository _repository;
 
-        public GetCarCountQueryHandler(ICarRepository carRepository)
+        public GetCarCountQueryHandler(IStatisticRepository repository)
         {
-            _carRepository = carRepository;
+            _repository = repository;
         }
 
         public async Task<GetCarCountQueryResult> Handle(GetCarCountQuery request, CancellationToken cancellationToken)
         {
-            var value = await _carRepository.GetCarCountAsync();
+            var value = await _repository.GetCarCountAsync();
             return new GetCarCountQueryResult
             {
                 CarCount = value
