@@ -28,6 +28,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 builder.Services.AddScoped(typeof(IStatisticRepository), typeof(StatisticRepository));
+builder.Services.AddScoped(typeof(ICarRentalRepository), typeof(CarRentalRepository));
 
 builder.Services.ApplicationServices(builder.Configuration);
 

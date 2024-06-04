@@ -3,3 +3,120 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Panelim</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ana Sayfa</a></li>
+                    <li class="breadcrumb-item active">Panelim</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-primary border-primary">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="card-title mb-0 text-white">Toplam Araç Sayısı</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                            @ViewBag.CarCount Adet
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-secondary border-secondary">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="card-title mb-0 text-white">Toplam Marka Sayısı</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center mb-0 text-white">
+                            @ViewBag.BrandCount Adet
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-success border-success">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Günlük</span>
+                    <h5 class="card-title mb-0 text-white">En Uygun Araç</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                            @ViewBag.GetCarByDailyMinPrice
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-danger border-danger">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Günlük</span>
+                    <h5 class="card-title mb-0 text-white">En Pahalı Araç</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                            @ViewBag.GetCarByDailyMaxPrice
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-warning border-warning">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Günlük</span>
+                    <h5 class="card-title mb-0 text-white">Ortalama Fiyat</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center mb-0 text-white">
+                            ₺@ViewBag.GetDailyAveragePricing
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-2">
+        <div class="card bg-dark border-dark">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="card-title mb-0 text-white">En Popüler Marka</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                            @ViewBag.GetBrandNameByMostCar
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

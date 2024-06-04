@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -11,9 +12,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20240604125120_NewTable_CarRental")]
+    partial class NewTable_CarRental
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -318,32 +321,6 @@ namespace Persistence.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Customer", b =>
-                {
-                    b.Property<string>("CustomerID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CustomerID");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("Domain.Entities.Feature", b =>
                 {
                     b.Property<string>("FeatureID")
@@ -410,51 +387,6 @@ namespace Persistence.Migrations
                     b.HasKey("PricingID");
 
                     b.ToTable("Pricings");
-                });
-
-            modelBuilder.Entity("Domain.Entities.RentalTransactions", b =>
-                {
-                    b.Property<string>("RentalTransactionsID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CarID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CustomerID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateOnly>("DropOffDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("DropOffLocationID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeOnly>("DropOffTime")
-                        .HasColumnType("Time");
-
-                    b.Property<DateOnly>("PickUpDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("PickUpLocationID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeOnly>("PickUpTime")
-                        .HasColumnType("Time");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("RentalTransactionsID");
-
-                    b.HasIndex("CarID");
-
-                    b.HasIndex("CustomerID");
-
-                    b.ToTable("RentalTransactions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Service", b =>
@@ -617,25 +549,6 @@ namespace Persistence.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("Domain.Entities.RentalTransactions", b =>
-                {
-                    b.HasOne("Domain.Entities.Car", "Car")
-                        .WithMany("RentalTransactions")
-                        .HasForeignKey("CarID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Entities.Customer", "Customer")
-                        .WithMany("RentalTransactions")
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Customer");
-                });
-
             modelBuilder.Entity("Domain.Entities.AppRole", b =>
                 {
                     b.Navigation("AppUsers");
@@ -655,13 +568,6 @@ namespace Persistence.Migrations
                     b.Navigation("CarPricings");
 
                     b.Navigation("CarRentals");
-
-                    b.Navigation("RentalTransactions");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Customer", b =>
-                {
-                    b.Navigation("RentalTransactions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Feature", b =>

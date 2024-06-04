@@ -1,4 +1,6 @@
-﻿@{
+﻿@model CreateCarRentalDto
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,11 +13,13 @@
             <div class="col-md-12 featured-top">
                 <div class="row no-gutters">
                     <div class="col-md-4 d-flex align-items-center">
-                        <form action="#" class="request-form ftco-animate bg-primary">
+                        <form method="post" class="request-form ftco-animate bg-primary">
                             <h2>Seyahatinizi Planlayın</h2>
                             <div class="form-group">
                                 <label for="" class="label">Alış Noktası</label>
-                                <input type="text" class="form-control" placeholder="Şehir, Havaalanı, Durak, vb.">
+                                <select class="form-control" asp-items="@ViewBag.Location" asp-for="LocationID">
+                                    <option disabled selected>Şehir, Havaalanı, Durak, vb.</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="" class="label">Teslim Noktası</label>
@@ -36,7 +40,7 @@
                                 <input type="text" class="form-control" id="time_pick" placeholder="Alış Zamanı">
                             </div>
                             <div class="form-group">
-                                <input type="button" value="Şimdi Kirala" class="btn btn-secondary py-3 px-4">
+                                <input type="submit" value="Şimdi Kirala" class="btn btn-secondary py-3 px-4">
                             </div>
                         </form>
                     </div>

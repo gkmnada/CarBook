@@ -64,10 +64,98 @@ namespace PresentationAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetAutomaticTransmissionCarCount")]
+        public async Task<IActionResult> GetAutomaticTransmissionCarCount()
+        {
+            var request = new GetAutomaticTransmissionCarCountQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetManuelTransmissionCarCount")]
+        public async Task<IActionResult> GetManuelTransmissionCarCount()
+        {
+            var request = new GetManuelTransmissionCarCountQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
         [HttpGet("GetBrandNameByMostCar")]
         public async Task<IActionResult> GetBrandNameByMostCar()
         {
             var request = new GetBrandNameByMostCarQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByDailyMinPrice")]
+        public async Task<IActionResult> GetCarByDailyMinPrice()
+        {
+            var request = new GetCarByDailyMinPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByDailyMaxPrice")]
+        public async Task<IActionResult> GetCarByDailyMaxPrice()
+        {
+            var request = new GetCarByDailyMaxPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByWeeklyMinPrice")]
+        public async Task<IActionResult> GetCarByWeeklyMinPrice()
+        {
+            var request = new GetCarByWeeklyMinPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByWeeklyMaxPrice")]
+        public async Task<IActionResult> GetCarByWeeklyMaxPrice()
+        {
+            var request = new GetCarByWeeklyMaxPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByMonthlyMinPrice")]
+        public async Task<IActionResult> GetCarByMonthlyMinPrice()
+        {
+            var request = new GetCarByMonthlyMinPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetCarByMonthlyMaxPrice")]
+        public async Task<IActionResult> GetCarByMonthlyMaxPrice()
+        {
+            var request = new GetCarByMonthlyMaxPriceQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetDieselFuelCarCount")]
+        public async Task<IActionResult> GetDieselFuelCarCount()
+        {
+            var request = new GetDieselFuelCarCountQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetGasolineFuelCarCount")]
+        public async Task<IActionResult> GetGasolineFuelCarCount()
+        {
+            var request = new GetGasolineFuelCarCountQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
+        }
+
+        [HttpGet("GetElectricFuelCarCount")]
+        public async Task<IActionResult> GetElectricFuelCarCount()
+        {
+            var request = new GetElectricFuelCarCountQuery();
             var result = await _mediator.Send(request);
             return Ok(result);
         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -11,9 +12,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20240604130915_NewTable_RentalTransactions")]
+    partial class NewTable_RentalTransactions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,6 +278,51 @@ namespace Persistence.Migrations
                     b.ToTable("CarRentals");
                 });
 
+            modelBuilder.Entity("Domain.Entities.CarRentalTransactions", b =>
+                {
+                    b.Property<string>("CarRentalTransactionsID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CarID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CustomerID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateOnly>("DropOffDate")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("DropOffLocationID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeOnly>("DropOffTime")
+                        .HasColumnType("Time");
+
+                    b.Property<DateOnly>("PickUpDate")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("PickUpLocationID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeOnly>("PickUpTime")
+                        .HasColumnType("Time");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("CarRentalTransactionsID");
+
+                    b.HasIndex("CarID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.ToTable("CarRentalTransactions");
+                });
+
             modelBuilder.Entity("Domain.Entities.Category", b =>
                 {
                     b.Property<string>("CategoryID")
@@ -410,51 +458,6 @@ namespace Persistence.Migrations
                     b.HasKey("PricingID");
 
                     b.ToTable("Pricings");
-                });
-
-            modelBuilder.Entity("Domain.Entities.RentalTransactions", b =>
-                {
-                    b.Property<string>("RentalTransactionsID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CarID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CustomerID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateOnly>("DropOffDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("DropOffLocationID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeOnly>("DropOffTime")
-                        .HasColumnType("Time");
-
-                    b.Property<DateOnly>("PickUpDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("PickUpLocationID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeOnly>("PickUpTime")
-                        .HasColumnType("Time");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("RentalTransactionsID");
-
-                    b.HasIndex("CarID");
-
-                    b.HasIndex("CustomerID");
-
-                    b.ToTable("RentalTransactions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Service", b =>
@@ -617,16 +620,16 @@ namespace Persistence.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("Domain.Entities.RentalTransactions", b =>
+            modelBuilder.Entity("Domain.Entities.CarRentalTransactions", b =>
                 {
                     b.HasOne("Domain.Entities.Car", "Car")
-                        .WithMany("RentalTransactions")
+                        .WithMany("CarRentalTransactions")
                         .HasForeignKey("CarID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Customer", "Customer")
-                        .WithMany("RentalTransactions")
+                        .WithMany("CarRentalTransactions")
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -654,14 +657,14 @@ namespace Persistence.Migrations
 
                     b.Navigation("CarPricings");
 
-                    b.Navigation("CarRentals");
+                    b.Navigation("CarRentalTransactions");
 
-                    b.Navigation("RentalTransactions");
+                    b.Navigation("CarRentals");
                 });
 
             modelBuilder.Entity("Domain.Entities.Customer", b =>
                 {
-                    b.Navigation("RentalTransactions");
+                    b.Navigation("CarRentalTransactions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Feature", b =>

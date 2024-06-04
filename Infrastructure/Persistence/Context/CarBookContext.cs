@@ -28,9 +28,14 @@ namespace Persistence.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<CarRental> CarRentals { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<RentalTransactions> RentalTransactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Table Relationship
+
             modelBuilder.Entity<Car>()
                 .HasOne(x => x.Brand)
                 .WithMany(x => x.Cars)
@@ -61,6 +66,44 @@ namespace Persistence.Context
                 .WithMany(x => x.CarPricings)
                 .HasForeignKey(x => x.PricingID);
 
+            modelBuilder.Entity<CarRental>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.CarRentals)
+                .HasForeignKey(x => x.CarID);
+
+            modelBuilder.Entity<CarRental>()
+                .HasOne(x => x.Location)
+                .WithMany(x => x.CarRentals)
+                .HasForeignKey(x => x.LocationID);
+
+            modelBuilder.Entity<RentalTransactions>()
+                .HasOne(x => x.Customer)
+                .WithMany(x => x.RentalTransactions)
+                .HasForeignKey(x => x.CustomerID);
+
+            modelBuilder.Entity<RentalTransactions>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.RentalTransactions)
+                .HasForeignKey(x => x.CarID);
+
+            // Table Column Type
+
+            modelBuilder.Entity<RentalTransactions>()
+                .Property(x => x.PickUpDate)
+                .HasColumnType("Date");
+
+            modelBuilder.Entity<RentalTransactions>()
+                .Property(x => x.DropOffDate)
+                .HasColumnType("Date");
+
+            modelBuilder.Entity<RentalTransactions>()
+                .Property(x => x.PickUpTime)
+                .HasColumnType("Time");
+
+            modelBuilder.Entity<RentalTransactions>()
+                .Property(x => x.DropOffTime)
+                .HasColumnType("Time");
+
             // Table Primary Key
 
             modelBuilder.Entity<About>().HasKey(x => x.AboutID);
@@ -79,6 +122,9 @@ namespace Persistence.Context
             modelBuilder.Entity<Service>().HasKey(x => x.ServiceID);
             modelBuilder.Entity<SocialMedia>().HasKey(x => x.SocialMediaID);
             modelBuilder.Entity<Testimonial>().HasKey(x => x.TestimonialID);
+            modelBuilder.Entity<CarRental>().HasKey(x => x.CarRentalID);
+            modelBuilder.Entity<RentalTransactions>().HasKey(x => x.RentalTransactionsID);
+            modelBuilder.Entity<Customer>().HasKey(x => x.CustomerID);
         }
     }
 }
