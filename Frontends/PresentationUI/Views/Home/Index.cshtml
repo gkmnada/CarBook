@@ -1,6 +1,4 @@
-﻿@model CreateCarRentalDto
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,27 +15,29 @@
                             <h2>Seyahatinizi Planlayın</h2>
                             <div class="form-group">
                                 <label for="" class="label">Alış Noktası</label>
-                                <select class="form-control" asp-items="@ViewBag.Location" asp-for="LocationID">
-                                    <option disabled selected>Şehir, Havaalanı, Durak, vb.</option>
+                                <select class="custom-select" asp-items="@ViewBag.Location" name="LocationID">
+                                    <option value="0">Şehir, Havaalanı, Durak, vb.</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="label">Teslim Noktası</label>
-                                <input type="text" class="form-control" placeholder="Şehir, Havaalanı, Durak, vb.">
                             </div>
                             <div class="d-flex">
                                 <div class="form-group mr-2">
                                     <label for="" class="label">Alış Tarihi</label>
-                                    <input type="text" class="form-control" id="book_pick_date" placeholder="Alış Tarihi Seçiniz">
+                                    <input type="text" class="form-control" name="pickUp_date" id="book_pick_date" placeholder="Alış Tarihi Seçiniz">
                                 </div>
                                 <div class="form-group ml-2">
                                     <label for="" class="label">Teslim Tarihi</label>
-                                    <input type="text" class="form-control" id="book_off_date" placeholder="Teslim Tarihi Seçiniz">
+                                    <input type="text" class="form-control" name="dropOff_date" id="book_off_date" placeholder="Teslim Tarihi Seçiniz">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="" class="label">Alış Zamanı</label>
-                                <input type="text" class="form-control" id="time_pick" placeholder="Alış Zamanı">
+                            <div class="d-flex">
+                                <div class="form-group mr-2">
+                                    <label for="" class="label">Alış Zamanı</label>
+                                    <input type="text" class="form-control" name="pickUp_time" id="time_pick" placeholder="Alış Zamanı">
+                                </div>
+                                <div class="form-group ml-2">
+                                    <label for="" class="label">Teslim Zamanı</label>
+                                    <input type="text" class="form-control" name="dropOff_time" id="time_drop" placeholder="Teslim Zamanı">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Şimdi Kirala" class="btn btn-secondary py-3 px-4">

@@ -1,9 +1,7 @@
-﻿using DtoLayer.CarRentalDto;
-using DtoLayer.LocationDto;
+﻿using DtoLayer.LocationDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace PresentationUI.Controllers
 {
@@ -38,20 +36,9 @@ namespace PresentationUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(CreateCarRentalDto createCarRentalDto)
+        public IActionResult Index(string locationID, DateOnly pickUp_date, DateOnly dropOff_date, TimeOnly pickUp_time, TimeOnly dropOff_time)
         {
-            var client = _clientFactory.CreateClient();
-            var json = JsonConvert.SerializeObject(createCarRentalDto);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("https://localhost:7210/api/CarRental", content);
-            if (response.IsSuccessStatusCode)
-            {
-                var jsonData = await response.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCarRentalDto>>(jsonData);
-                var id = values.Select(x => x.CarID).FirstOrDefault();
-                return RedirectToAction("Index", "CarRental", new { id });
-            }
-            return View();
+            return RedirectToAction("Index", "CarRental", new { locationID, pickUp_date, dropOff_date, pickUp_time, dropOff_time });
         }
     }
 }
