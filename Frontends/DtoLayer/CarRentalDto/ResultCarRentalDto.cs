@@ -1,6 +1,6 @@
-﻿namespace Application.Features.Mediator.Results.CarRentalResults
+﻿namespace DtoLayer.CarRentalDto
 {
-    public class GetCarRentalQueryResult
+    public class ResultCarRentalDto
     {
         public string CarID { get; set; }
         public string BrandName { get; set; }

@@ -17,7 +17,7 @@ namespace Persistence.Repositories
 
         public async Task<List<CarRental>> GetByFilterAsync(Expression<Func<CarRental, bool>> filter)
         {
-            var values = await _context.CarRentals.Where(filter).ToListAsync();
+            var values = await _context.CarRentals.Include(x => x.Car).ThenInclude(x => x.Brand).Where(filter).ToListAsync();
             return values;
         }
     }

@@ -19,7 +19,10 @@ namespace Application.Features.Mediator.Handlers.CarRentalHandlers
             var values = await _carRentalRepository.GetByFilterAsync(x => x.LocationID == request.LocationID && x.Available == true);
             return values.Select(x => new GetCarRentalQueryResult
             {
-                CarID = x.CarID
+                CarID = x.CarID,
+                BrandName = x.Car.Brand.BrandName,
+                Model = x.Car.Model,
+                Image = x.Car.Image
             }).ToList();
         }
     }

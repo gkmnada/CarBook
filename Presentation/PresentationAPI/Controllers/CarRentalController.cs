@@ -16,9 +16,10 @@ namespace PresentationAPI.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> ListCarRentalByLocation(GetCarRentalQuery query)
+        [HttpGet]
+        public async Task<IActionResult> ListCarRentalByLocation(string id)
         {
+            var query = new GetCarRentalQuery(id);
             var values = await _mediator.Send(query);
             return Ok(values);
         }
