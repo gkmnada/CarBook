@@ -31,6 +31,7 @@ namespace Persistence.Context
         public DbSet<CarRental> CarRentals { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<RentalTransactions> RentalTransactions { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -86,6 +87,24 @@ namespace Persistence.Context
                 .WithMany(x => x.RentalTransactions)
                 .HasForeignKey(x => x.CarID);
 
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.Reservations)
+                .HasForeignKey(x => x.CarID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.PickUpLocation)
+                .WithMany(x => x.PickUpReservation)
+                .HasForeignKey(x => x.PickUpLocationID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.DropOffLocation)
+                .WithMany(x => x.DropOffReservation)
+                .HasForeignKey(x => x.DropOffLocationID)
+                .OnDelete(DeleteBehavior.NoAction);
+
             // Table Column Type
 
             modelBuilder.Entity<RentalTransactions>()
@@ -125,6 +144,7 @@ namespace Persistence.Context
             modelBuilder.Entity<CarRental>().HasKey(x => x.CarRentalID);
             modelBuilder.Entity<RentalTransactions>().HasKey(x => x.RentalTransactionsID);
             modelBuilder.Entity<Customer>().HasKey(x => x.CustomerID);
+            modelBuilder.Entity<Reservation>().HasKey(x => x.ReservationID);
         }
     }
 }

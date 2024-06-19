@@ -18,5 +18,6 @@
         public List<CarPricing> CarPricings { get; set; }
         public List<CarRental> CarRentals { get; set; }
         public List<RentalTransactions> RentalTransactions { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }
