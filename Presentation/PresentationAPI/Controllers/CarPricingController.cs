@@ -70,5 +70,13 @@ namespace PresentationAPI.Controllers
             var result = await _mediator.Send(query);
             return Ok(result);
         }
+
+        [HttpGet("ListCarPricingWithPeriod")]
+        public async Task<IActionResult> ListCarPricingWithPeriod()
+        {
+            var query = new GetCarPricingWithPeriodQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
     }
 }
