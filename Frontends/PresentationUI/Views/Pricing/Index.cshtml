@@ -53,8 +53,8 @@
                                         <p class="btn-custom"><a href="/Reservation/Index?id=@item.CarID">Kirala</a></p>
                                         <div class="price-rate">
                                             <h3>
-                                                <span class="num">₺@item.DailyAmount</span>
-                                                <span class="per">/Günlük</span>
+                                                <span class="num">₺@Convert.ToDecimal(item.DailyAmount).ToString("#,##0")</span>
+                                                <span class="per">/ Günlük</span>
                                             </h3>
                                         </div>
                                     </td>
@@ -62,8 +62,8 @@
                                         <p class="btn-custom"><a href="/Reservation/Index?id=@item.CarID">Kirala</a></p>
                                         <div class="price-rate">
                                             <h3>
-                                                <span class="num">₺@item.WeeklyAmount</span>
-                                                <span class="per">/Haftalık</span>
+                                                <span class="num">₺@Convert.ToDecimal(item.WeeklyAmount).ToString("#,##0")</span>
+                                                <span class="per">/ Haftalık</span>
                                             </h3>
                                         </div>
                                     </td>
@@ -71,8 +71,8 @@
                                         <p class="btn-custom"><a href="/Reservation/Index?id=@item.CarID">Kiralık</a></p>
                                         <div class="price-rate">
                                             <h3>
-                                                <span class="num">₺@item.MonthlyAmount</span>
-                                                <span class="per">/Aylık</span>
+                                                <span class="num">₺@Convert.ToDecimal(item.MonthlyAmount).ToString("#,##0")</span>
+                                                <span class="per">/ Aylık</span>
                                             </h3>
                                         </div>
                                     </td>

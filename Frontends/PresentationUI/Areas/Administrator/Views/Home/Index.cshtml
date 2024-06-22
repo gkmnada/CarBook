@@ -95,7 +95,7 @@
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-12">
                         <h2 class="d-flex align-items-center mb-0 text-white">
-                            ₺@ViewBag.GetDailyAveragePricing
+                            ₺@Convert.ToDecimal(ViewBag.GetDailyAveragePricing).ToString("#,##0")
                         </h2>
                     </div>
                 </div>

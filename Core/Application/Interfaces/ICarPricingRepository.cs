@@ -9,5 +9,6 @@ namespace Application.Interfaces
         Task<List<CarPricing>> ListCarPricingWithCarAsync();
         Task<List<CarPricing>> ListCarPricingWithCarRentalAsync(Expression<Func<CarRental, bool>> filter);
         Task<List<GetCarPricingWithPeriodQueryResult>> ListCarPricingWithPeriodAsync();
+        Task<List<CarPricing>> ListCarPricingByCarAsync(string id);
     }
 }
