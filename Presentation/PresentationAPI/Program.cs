@@ -29,6 +29,7 @@ builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 builder.Services.AddScoped(typeof(IStatisticRepository), typeof(StatisticRepository));
 builder.Services.AddScoped(typeof(ICarRentalRepository), typeof(CarRentalRepository));
+builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 
 builder.Services.ApplicationServices(builder.Configuration);
 
