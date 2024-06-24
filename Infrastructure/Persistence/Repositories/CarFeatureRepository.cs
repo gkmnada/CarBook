@@ -16,7 +16,7 @@ namespace Persistence.Repositories
 
         public async Task<List<CarFeature>> ListCarFeatureByCarIdAsync(string id)
         {
-            var values = await _context.CarFeatures.Include(x => x.Feature).Where(x => x.CarID == id).ToListAsync();
+            var values = await _context.CarFeatures.Include(x => x.Feature).Where(x => x.CarID == id).OrderBy(x => x.Feature.FeatureName).ToListAsync();
             return values;
         }
     }

@@ -1,6 +1,10 @@
-﻿namespace Application.Features.Mediator.Commands.CarFeatureCommands
+﻿using MediatR;
+
+namespace Application.Features.Mediator.Commands.CarFeatureCommands
 {
-    public class CreateCarFeatureCommand
+    public class CreateCarFeatureCommand : IRequest
     {
+        public string CarID { get; set; }
+        public string FeatureID { get; set; }
     }
 }

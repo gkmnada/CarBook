@@ -19,7 +19,7 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
         {
             var values = await _repository.ListAsync();
 
-            return values.Select(x => new GetFeatureQueryResult
+            return values.OrderBy(x => x.FeatureName).Select(x => new GetFeatureQueryResult
             {
                 FeatureID = x.FeatureID,
                 FeatureName = x.FeatureName

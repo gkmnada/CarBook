@@ -1,0 +1,51 @@
+﻿@model CreateCarFeatureDto
+
+@{
+    ViewData["Title"] = "CreateCarFeature";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Araç Özellik Girişi</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Araçlar</a></li>
+                    <li class="breadcrumb-item active">Araç Özellik Girişi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-cars">Araç</label>
+                                <select class="form-control" id="select-cars" asp-items="@ViewBag.Cars" asp-for="CarID">
+                                    <option value="Araç Seçilmedi">Araç Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group">
+                                <label for="select-feature">Özellik</label>
+                                <select class="form-control" id="select-feature" asp-items="@ViewBag.Features" asp-for="FeatureID">
+                                    <option value="Özellik Seçilmedi">Özellik Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
