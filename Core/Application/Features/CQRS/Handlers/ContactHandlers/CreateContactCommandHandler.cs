@@ -15,7 +15,7 @@ namespace Application.Features.CQRS.Handlers.ContactHandlers
 
         public async Task Handle(CreateContactCommand createContactCommand)
         {
-            await _repository.CreateAsnyc(new Contact
+            await _repository.CreateAsync(new Contact
             {
                 Name = createContactCommand.Name,
                 Email = createContactCommand.Email,

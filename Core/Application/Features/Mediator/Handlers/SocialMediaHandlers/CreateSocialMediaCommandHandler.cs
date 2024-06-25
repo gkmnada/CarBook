@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.SocialMediaHandlers
 
         public async Task<Unit> Handle(CreateSocialMediaCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new SocialMedia
+            await _repository.CreateAsync(new SocialMedia
             {
                 Name = request.Name,
                 Address = request.Address,

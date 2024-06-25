@@ -15,7 +15,7 @@ namespace Application.Features.CQRS.Handlers.CategoryHandlers
 
         public async Task Handle(CreateCategoryCommand createCategoryCommand)
         {
-            await _repository.CreateAsnyc(new Category
+            await _repository.CreateAsync(new Category
             {
                 CategoryName = createCategoryCommand.CategoryName
             });

@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.FooterHandlers
 
         public async Task<Unit> Handle(CreateFooterCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Footer
+            await _repository.CreateAsync(new Footer
             {
                 Description = request.Description,
                 Address = request.Address,

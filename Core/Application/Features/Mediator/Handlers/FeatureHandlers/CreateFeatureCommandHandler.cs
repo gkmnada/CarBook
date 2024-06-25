@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
 
         public async Task<Unit> Handle(CreateFeatureCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Feature
+            await _repository.CreateAsync(new Feature
             {
                 FeatureName = request.FeatureName,
             });

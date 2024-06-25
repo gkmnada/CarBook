@@ -14,7 +14,7 @@ namespace Persistence.Repositories
             _context = context;
         }
 
-        public async Task CreateAsnyc(T entity)
+        public async Task CreateAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -33,12 +33,17 @@ namespace Persistence.Repositories
 
         public async Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter)
         {
-            return await _context.Set<T>().FirstOrDefaultAsync(filter);
+            return await _context.Set<T>().Where(filter).FirstOrDefaultAsync();
         }
 
         public async Task<List<T>> ListAsync()
         {
             return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<List<T>> ListByFilterAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _context.Set<T>().Where(filter).ToListAsync();
         }
 
         public async Task UpdateAsync(T entity)

@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.CarFeatureHandlers
 
         public async Task<Unit> Handle(CreateCarFeatureCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new CarFeature
+            await _repository.CreateAsync(new CarFeature
             {
                 CarID = request.CarID,
                 FeatureID = request.FeatureID,

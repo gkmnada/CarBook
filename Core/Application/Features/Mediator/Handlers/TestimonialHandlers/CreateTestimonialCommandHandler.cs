@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.TestimonialHandlers
 
         public async Task<Unit> Handle(CreateTestimonialCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Testimonial
+            await _repository.CreateAsync(new Testimonial
             {
                 Name = request.Name,
                 Title = request.Title,

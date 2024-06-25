@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.PricingHandlers
 
         public async Task<Unit> Handle(CreatePricingCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Pricing
+            await _repository.CreateAsync(new Pricing
             {
                 Name = request.Name,
             });

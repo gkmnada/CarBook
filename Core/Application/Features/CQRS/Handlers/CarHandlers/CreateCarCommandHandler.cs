@@ -15,7 +15,7 @@ namespace Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task Handle(CreateCarCommand createCarCommand)
         {
-            await _repository.CreateAsnyc(new Car
+            await _repository.CreateAsync(new Car
             {
                 BrandID = createCarCommand.BrandID,
                 Model = createCarCommand.Model,

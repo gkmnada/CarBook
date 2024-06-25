@@ -39,6 +39,7 @@ namespace Application.Services
             services.AddScoped<CreateCarCommandHandler>();
             services.AddScoped<UpdateCarCommandHandler>();
             services.AddScoped<DeleteCarCommandHandler>();
+            services.AddScoped<GetCarWithBrandByIdQueryHandler>();
             services.AddScoped<GetCarWithBrandQueryHandler>();
 
             services.AddScoped<GetContactQueryHandler>();

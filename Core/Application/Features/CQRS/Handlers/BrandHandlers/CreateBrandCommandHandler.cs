@@ -15,7 +15,7 @@ namespace Application.Features.CQRS.Handlers.BrandHandlers
 
         public async Task Handle(CreateBrandCommand createBrandCommand)
         {
-            await _repository.CreateAsnyc(new Brand
+            await _repository.CreateAsync(new Brand
             {
                 BrandName = createBrandCommand.BrandName
             });

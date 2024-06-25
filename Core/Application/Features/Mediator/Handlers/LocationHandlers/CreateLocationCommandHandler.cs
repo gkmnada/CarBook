@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.LocationHandlers
 
         public async Task<Unit> Handle(CreateLocationCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Location
+            await _repository.CreateAsync(new Location
             {
                 Name = request.Name
             });

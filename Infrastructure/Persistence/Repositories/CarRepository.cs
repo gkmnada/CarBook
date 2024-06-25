@@ -14,6 +14,12 @@ namespace Persistence.Repositories
             _context = context;
         }
 
+        public async Task<Car> GetCarWithBrandAsync(string id)
+        {
+            var values = await _context.Cars.Include(x => x.Brand).Where(x => x.CarID == id).FirstOrDefaultAsync();
+            return values;
+        }
+
         public async Task<List<Car>> ListCarWithBrandAsync()
         {
             var values = await _context.Cars.Include(x => x.Brand).ToListAsync();

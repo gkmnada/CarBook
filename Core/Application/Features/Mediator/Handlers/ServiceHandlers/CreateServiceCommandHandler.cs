@@ -16,7 +16,7 @@ public class CreateServiceCommandHandler : IRequestHandler<CreateServiceCommand>
 
     public async Task<Unit> Handle(CreateServiceCommand request, CancellationToken cancellationToken)
     {
-        await _repository.CreateAsnyc(new Service
+        await _repository.CreateAsync(new Service
         {
             Title = request.Title,
             Description = request.Description,

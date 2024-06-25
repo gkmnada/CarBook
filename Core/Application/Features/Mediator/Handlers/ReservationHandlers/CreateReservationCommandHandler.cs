@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.ReservationHandlers
 
         public async Task<Unit> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new Reservation
+            await _repository.CreateAsync(new Reservation
             {
                 Name = request.Name,
                 Surname = request.Surname,

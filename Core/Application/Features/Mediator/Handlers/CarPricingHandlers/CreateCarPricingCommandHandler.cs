@@ -16,7 +16,7 @@ namespace Application.Features.Mediator.Handlers.CarPricingHandlers
 
         public async Task<Unit> Handle(CreateCarPricingCommand request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsnyc(new CarPricing
+            await _repository.CreateAsync(new CarPricing
             {
                 CarID = request.CarID,
                 PricingID = request.PricingID,
