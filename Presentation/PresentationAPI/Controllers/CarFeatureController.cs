@@ -31,5 +31,19 @@ namespace PresentationAPI.Controllers
             var values = await _mediator.Send(command);
             return Ok("Başarılı");
         }
+
+        [HttpGet("UpdateAvailableToFalse")]
+        public async Task<IActionResult> UpdateAvailableToFalse(string id)
+        {
+            var values = await _mediator.Send(new UpdateAvailableToFalseCommand(id));
+            return Ok("Başarılı");
+        }
+
+        [HttpGet("UpdateAvailableToTrue")]
+        public async Task<IActionResult> UpdateAvailableToTrue(string id)
+        {
+            var values = await _mediator.Send(new UpdateAvailableToTrueCommand(id));
+            return Ok("Başarılı");
+        }
     }
 }

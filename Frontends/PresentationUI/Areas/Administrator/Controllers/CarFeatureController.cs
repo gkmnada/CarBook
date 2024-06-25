@@ -18,6 +18,7 @@ namespace PresentationUI.Areas.Administrator.Controllers
             _clientFactory = clientFactory;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index(string id)
         {
             var client = _clientFactory.CreateClient();
@@ -29,6 +30,25 @@ namespace PresentationUI.Areas.Administrator.Controllers
                 return View(carFeature);
             }
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(List<ResultCarFeatureDto> resultCarFeatureDto)
+        {
+            foreach (var item in resultCarFeatureDto)
+            {
+                var client = _clientFactory.CreateClient();
+
+                if (item.Available)
+                {
+                    var response = await client.GetAsync("https://localhost:7210/api/CarFeature/UpdateAvailableToTrue?id=" + item.CarFeatureID);
+                }
+                else
+                {
+                    var response = await client.GetAsync("https://localhost:7210/api/CarFeature/UpdateAvailableToFalse?id=" + item.CarFeatureID);
+                }
+            }
+            return RedirectToAction("Index", "Cars", new { area = "Administrator", });
         }
 
         [HttpGet]
