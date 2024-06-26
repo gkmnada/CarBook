@@ -38,7 +38,7 @@ JWT (JSON Web Tokens) is implemented for secure authentication, ensuring that on
 Fluent Validation is used for validation of requests and business logic, providing a fluent and expressive way to define validation rules.
 
 
-## 🚙 Car Rental Features
+## ✨ Key Features
 ### User Functionality:
 
 - Select pick-up and drop-off locations.
