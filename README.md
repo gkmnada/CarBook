@@ -53,6 +53,10 @@ Fluent Validation is used for validation of requests and business logic, providi
 - Manage rental transactions and user information.
 
 
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
 ## 🙏 Acknowledgements
 Special thanks to the developers and contributors of the libraries and frameworks used in this project.
 
