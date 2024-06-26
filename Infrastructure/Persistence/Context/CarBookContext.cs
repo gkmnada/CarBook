@@ -32,6 +32,7 @@ namespace Persistence.Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<RentalTransactions> RentalTransactions { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -105,6 +106,11 @@ namespace Persistence.Context
                 .HasForeignKey(x => x.DropOffLocationID)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Review>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.Reviews)
+                .HasForeignKey(x => x.CarID);
+
             // Table Column Type
 
             modelBuilder.Entity<RentalTransactions>()
@@ -145,6 +151,7 @@ namespace Persistence.Context
             modelBuilder.Entity<RentalTransactions>().HasKey(x => x.RentalTransactionsID);
             modelBuilder.Entity<Customer>().HasKey(x => x.CustomerID);
             modelBuilder.Entity<Reservation>().HasKey(x => x.ReservationID);
+            modelBuilder.Entity<Review>().HasKey(x => x.ReviewID);
         }
     }
 }

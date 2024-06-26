@@ -19,5 +19,6 @@
         public List<CarRental> CarRentals { get; set; }
         public List<RentalTransactions> RentalTransactions { get; set; }
         public List<Reservation> Reservations { get; set; }
+        public List<Review> Reviews { get; set; }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using DtoLayer.StatisticDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace PresentationUI.Areas.Administrator.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     [Area("Administrator")]
     public class HomeController : Controller
     {

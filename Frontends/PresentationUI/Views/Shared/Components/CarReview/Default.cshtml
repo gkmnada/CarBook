@@ -1,71 +1,43 @@
-﻿<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+﻿@model List<ResultReviewDto>
+
+<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
     <div class="row">
         <div class="col-md-7">
-            <h3 class="head">23 Reviews</h3>
-            <div class="review d-flex">
-                <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                <div class="desc">
-                    <h4>
-                        <span class="text-left">Jacob Webb</span>
-                        <span class="text-right">14 March 2018</span>
-                    </h4>
-                    <p class="star">
-                        <span>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                        </span>
-                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                    </p>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
+            <h3 class="head" id="review-count"></h3>
+            @foreach (var item in Model)
+            {
+                <div class="review d-flex">
+                    <div class="user-img" style="background-image: url(@item.Image)"></div>
+                    <div class="desc">
+                        <h4>
+                            <span class="text-left">@item.Name</span>
+                            <span class="text-right">@Convert.ToDateTime(item.CreatedAt).ToString("dd.MM.yyyy HH:mm")</span>
+                        </h4>
+                        <p class="star">
+                            <span>
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    if (i < item.Rating)
+                                    {
+                                        <i class="ion-ios-star"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="ion-ios-star-outline"></i>
+                                    }
+                                }
+                            </span>
+                            <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+                        </p>
+                        <p>@item.Comment</p>
+                    </div>
                 </div>
-            </div>
-            <div class="review d-flex">
-                <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
-                <div class="desc">
-                    <h4>
-                        <span class="text-left">Jacob Webb</span>
-                        <span class="text-right">14 March 2018</span>
-                    </h4>
-                    <p class="star">
-                        <span>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                        </span>
-                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                    </p>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                </div>
-            </div>
-            <div class="review d-flex">
-                <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
-                <div class="desc">
-                    <h4>
-                        <span class="text-left">Jacob Webb</span>
-                        <span class="text-right">14 March 2018</span>
-                    </h4>
-                    <p class="star">
-                        <span>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                        </span>
-                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                    </p>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                </div>
-            </div>
+            }
         </div>
+        <input type="hidden" id="txt-car-id" value="@ViewBag.Id" />
         <div class="col-md-5">
             <div class="rating-wrap">
-                <h3 class="head">Give a Review</h3>
+                <h3 class="head">Tüm İncelemeler</h3>
                 <div class="wrap">
                     <p class="star">
                         <span>
@@ -74,9 +46,9 @@
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
-                            (98%)
+                            (50%)
                         </span>
-                        <span>20 Reviews</span>
+                        <span>1 Değerlendirme</span>
                     </p>
                     <p class="star">
                         <span>
@@ -84,46 +56,73 @@
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            (85%)
+                            <i class="ion-ios-star-outline"></i>
+                            (50%)
                         </span>
-                        <span>10 Reviews</span>
+                        <span>1 Değerlendirme</span>
                     </p>
                     <p class="star">
                         <span>
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
                             <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            (70%)
-                        </span>
-                        <span>5 Reviews</span>
-                    </p>
-                    <p class="star">
-                        <span>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            (10%)
-                        </span>
-                        <span>0 Reviews</span>
-                    </p>
-                    <p class="star">
-                        <span>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
                             (0%)
                         </span>
-                        <span>0 Reviews</span>
+                        <span>0 Değerlendirme</span>
+                    </p>
+                    <p class="star">
+                        <span>
+                            <i class="ion-ios-star"></i>
+                            <i class="ion-ios-star"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            (0%)
+                        </span>
+                        <span>0 Değerlendirme</span>
+                    </p>
+                    <p class="star">
+                        <span>
+                            <i class="ion-ios-star"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            <i class="ion-ios-star-outline"></i>
+                            (0%)
+                        </span>
+                        <span>0 Değerlendirme</span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+        var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7210/AppHub").build();
+
+        connection.start().then(function () {
+            setInterval(() => {
+                InvokeReview();
+            }, 2000)
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        connection.on("ReceiveReviewCount", function (reviewCount) {
+            $("#review-count").text(reviewCount + " İnceleme");
+        });
+
+        function InvokeReview() {
+            connection.invoke("SendReviewCount", $("#txt-car-id").val()).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    })
+</script>

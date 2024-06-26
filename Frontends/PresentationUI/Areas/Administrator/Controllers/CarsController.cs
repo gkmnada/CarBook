@@ -1,5 +1,6 @@
 ﻿using DtoLayer.BrandDto;
 using DtoLayer.CarDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace PresentationUI.Areas.Administrator.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     [Area("Administrator")]
     public class CarsController : Controller
     {

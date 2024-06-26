@@ -43,7 +43,7 @@
                                     <td>@count</td>
                                     <td>@item.Description</td>
                                     <td>
-                                        <a href="/Administrator/CarDescription/UpdateDescription?id=@item.CarDescriptionID" class="btn btn-secondary btn-rounded waves-effect waves-light">Güncelle</a>
+                                        <a href="/Administrator/CarDescription/UpdateDescription?id=@item.CarDescriptionID&car=@ViewBag.CarId" class="btn btn-secondary btn-rounded waves-effect waves-light">Güncelle</a>
                                         <a href="/Administrator/CarDescription/DeleteDescription?id=@item.CarDescriptionID" class="btn btn-danger btn-rounded waves-effect waves-light">Sil</a>
                                     </td>
                                 </tr>
@@ -51,7 +51,7 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="/Administrator/CarDescription/CreateCarDescription?id=@ViewBag.CarId" class="btn btn-primary waves-effect waves-light">Yeni Açıklama Oluştur</a>
+                <a href="/Administrator/CarDescription/CreateCarDescription?id=@ViewBag.CarId" class="btn btn-primary waves-effect waves-light mt-5">Yeni Açıklama Oluştur</a>
             </div>
         </div>
     </div>

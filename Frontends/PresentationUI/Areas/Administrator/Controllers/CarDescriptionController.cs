@@ -1,6 +1,7 @@
 ﻿using DtoLayer.CarDescriptionDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using PresentationUI.Areas.Administrator.Models;
 using System.Text;
 
 namespace PresentationUI.Areas.Administrator.Controllers
@@ -55,6 +56,42 @@ namespace PresentationUI.Areas.Administrator.Controllers
         {
             var client = _clientFactory.CreateClient();
             var response = await client.DeleteAsync("https://localhost:7210/api/CarDescription?id=" + id);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "Cars", new { area = "Administrator" });
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateDescription(string id, string car)
+        {
+            ViewBag.CarId = car;
+
+            var client = _clientFactory.CreateClient();
+            var response = await client.GetAsync("https://localhost:7210/api/CarDescription/GetCarDescription?id=" + id);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonData = await response.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<GetCarDescriptionDto>(jsonData);
+
+                var carDescription = new CarDescriptionViewModel
+                {
+                    GetCarDescriptionDto = values
+                };
+
+                return View(carDescription);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateDescription(UpdateCarDescriptionDto updateCarDescriptionDto)
+        {
+            var client = _clientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateCarDescriptionDto);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync("https://localhost:7210/api/CarDescription", content);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "Cars", new { area = "Administrator" });

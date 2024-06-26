@@ -1,4 +1,5 @@
 ﻿using DtoLayer.LocationDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PresentationUI.Areas.Administrator.Models;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace PresentationUI.Areas.Administrator.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     [Area("Administrator")]
     public class LocationController : Controller
     {

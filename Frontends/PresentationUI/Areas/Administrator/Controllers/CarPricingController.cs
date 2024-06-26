@@ -1,6 +1,7 @@
 ﻿using DtoLayer.CarDto;
 using DtoLayer.CarPricingDto;
 using DtoLayer.PricingDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -9,6 +10,7 @@ using System.Text;
 
 namespace PresentationUI.Areas.Administrator.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     [Area("Administrator")]
     public class CarPricingController : Controller
     {
